@@ -1,0 +1,48 @@
+<div class="mb-10">
+  <p class="font-nunito font-normal text-sm text-text-gray">Welcome back!!</p>
+  <p class="font-nunito font-extrabold text-[28px] text-text-black">Please Sign In</p>
+</div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field mb-10">
+    <div class="mb-4">
+      <%= f.label :email, "Email address", class: "mb-36 font-nunito font-normal text-sm text-text-black" %><br/>
+    </div>
+    <div>
+      <%= f.email_field :email, class: "w-[350px] h-[50px] rounded-[10px] bg-[#f8fafc] border border-light-gray ", autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="mb-4">
+      <%= f.label :password, class: "font-nunito font-normal text-sm text-text-black" %><br/>
+    </div>
+    <div>
+      <%= f.password_field :password, class: "w-[350px] h-[50px] rounded-[10px] bg-[#f8fafc] border border-light-gray", autocomplete: "current-password" %>
+    </div>
+  </div>
+
+
+  <div class="w-[350px] flex justify-items-center justify-between">
+    <% if devise_mapping.rememberable? %>
+      <div class="field mt-5 ">
+        <%= f.check_box :remember_me, class: "ms-2" %>
+        <%= f.label :remember_me, class: "ms-2 pb-2 font-nunito font-normal text-sm text-text-gray" %>
+      </div>
+    <% end %>
+    <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <div class="field mt-5 ms-5 ">
+      <%= link_to "I forgot my password", new_password_path(resource_name), class:"font-nunito text-sm font-normal text-accent-blue" %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="mt-10 w-[350px] h-[50px]">
+    <%= f.submit "Sign in", class: "w-full h-full p-2.5 bg-gradient-to-br from-accent-blue to-gradient-violet text-white text-sm font-normal font-nunito leading-normal rounded-[10px] hover:bg-gradient-to-bl focus:outline-none transition duration-300 ease-in-out" %>
+  </div>
+
+
+<% end %>
+
+<%= render "devise/shared/links", resource_name: resource_name, devise_mapping: devise_mapping %>

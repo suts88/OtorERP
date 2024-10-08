@@ -1,0 +1,8 @@
+email: 'example@example.com', password: 'password123', password_confirmation: 'password123'
+
+debug help when Tailwind disappears:
+rails assets:clobber
+rails assets:precompile
+rails tmp:cache:clear
+
+

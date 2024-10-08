@@ -1,0 +1,20 @@
+<div class="min-h-32 w-full flex items-center gap-4 md:gap-12">
+  <div class="flex md:ms-24 ms-16 items-center">
+    <%= image_tag('logo.svg', class: "w-auto h-auto shrink-0") %>
+    <div class="ml-4">
+      <p class="mt-2 font-nunito text-[13px] font-bold text-accent-blue">UiUxOtor</p>
+      <p class="font-nunito text-[13px] font-normal text-text-black">ERP System</p>
+    </div>
+  </div>
+  <div class=" flex-shrink-0 md:me-24 ms-48" >
+    <% if current_page?(root_path) %>
+       <%= link_to "Sign up", new_user_registration_path, class: "w-[100px] h-[46px] p-2.5 rounded-[10px] border border-accent-blue
+        justify-center items-center gap-2.5 inline-flex text-accent-blue text-sm font-normal font-nunito leading-normal
+        hover:bg-accent-blue hover:text-white transition duration-300 ease-in-out" %>
+    <% else %>
+        <%= link_to "Sign in", root_path, class: "w-[100px] h-[46px] p-2.5 rounded-[10px] border border-accent-blue
+        justify-center items-center gap-2.5 inline-flex text-accent-blue text-sm font-normal font-nunito leading-normal
+        hover:bg-accent-blue hover:text-white transition duration-300 ease-in-out" %>
+    <% end %>
+  </div>
+</div>
