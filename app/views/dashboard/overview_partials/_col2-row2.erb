@@ -1,0 +1,29 @@
+<div class="flex justify-center w-full md:w-[562px] h-auto md:h-[327px] rounded-[20px] bg-white mt-1 ms-32 mb-2">
+  <div class="flex flex-col w-full max-w-[500px] ms-4 mt-2">
+    <p class="font-nunito text-xl font-extrabold text-text-black mt-4">Staff</p>
+    <div class="overflow-y-auto">
+      <table class="table-auto mt-2 me-4 w-full">
+        <thead>
+        <tr class="border-b border-[#DDDDDD] h-8">
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">S/N</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Firstname</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Lastname</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Role</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Staff Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @staffs.each_with_index do |staff, index| %>
+          <tr class="border-b border-[#DDDDDD] h-8">
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= index + 1 %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= staff.firstname %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= staff.lastname %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= staff.role %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= staff.staff_id %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

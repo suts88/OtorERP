@@ -1,5 +1,4 @@
 <div>
-
   <div class="mt-4">
     <p class="font-nunito text-xl font-extrabold text-text-black">Welcome, <%= current_user.full_name %></p>
     <p class="font-nunito text-xs font-normal  text-neutral-800 text-text-black">
@@ -8,9 +7,9 @@
   </div>
 
   <div class="flex justify-around mt-14">
-    <div class="flex w-[271px] h-[150px] bg-white rounded-[20px]">
+    <div class="flex w-full sm:w-[200px] md:w-[271px] h-[120px] md:h-[150px] bg-white rounded-[20px]">
       <div class="flex flex-col justify-start items-start mt-4 ms-6">
-        <p class="font-nunito text-[28px] font-extrabold text-text-black">250</p>
+        <p class="font-nunito text-[28px] font-extrabold text-text-black"><%= @staffs.count %></p>
         <p class="font-nunito text-text-black text-base font-normal leading-normal">Total Number of Staff</p>
         <div class="mt-6 flex justify-items-center justify-center">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +29,7 @@
       </div>
     </div>
 
-    <div class="flex w-[271px] h-[150px] bg-white rounded-[20px]">
+    <div class="flex w-full sm:w-[200px] md:w-[271px] h-[120px] md:h-[150px] bg-white rounded-[20px]">
       <div class="flex flex-col justify-start items-start mt-4 ms-6">
         <p class="font-nunito text-[28px] font-extrabold text-text-black">100</p>
         <p class="font-nunito text-text-black text-base font-normal leading-normal">Total Applications</p>
