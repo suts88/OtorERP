@@ -1,41 +1,41 @@
-<div class="grid grid-cols-2 grid-rows-[300px_340px_340px_85px] h-full">
+<div class="grid grid-cols-2 grid-rows-[300px_340px_340px_85px] gap-y-2 h-full">
   <!-- 1. Div: Erste Zeile, Erste Spalte  testfarbe: bg-red-800-->
-  <div class="col-start-1 row-start-1">
+  <div class="col-start-1 row-start-1 ">
     <%= render 'dashboard/overview_partials/col1-row1' %>
   </div>
 
   <!-- 2. Div: Erste Zeile, Zweite Spalte  testfarbe: bg-blue-500-->
-  <div class="col-start-2 row-start-1">
+  <div class="col-start-2 row-start-1 ">
     <%= render 'dashboard/overview_partials/col2-row1' %>
   </div>
 
   <!-- 3. Div: Zweite Zeile, Erste Spalte testfarbe:bg-green-500  -->
-  <div class="col-start-1 row-start-2">
+  <div class="col-start-1 row-start-2 justify-self-end">
     <%= render 'dashboard/overview_partials/col1-row2' %>
   </div>
 
   <!-- 4. Div: Zweite Zeile, Zweite Spalte testfarbe: bg-yellow-500 -->
-  <div class="col-start-2 row-start-2">
+  <div class="col-start-2 row-start-2 justify-self-start">
     <%= render 'dashboard/overview_partials/col2-row2' %>
   </div>
 
-  <!-- 5. Div: Dritte Zeile, Erste Spalte -->
-  <div class="col-start-1 row-start-3 bg-purple-500">
-    Inhalt für 3. Zeile, 1. Spalte
+  <!-- 5. Div: Dritte Zeile, Erste Spalte testfarbe: bg-purple-500  -->
+  <div class="col-start-1 row-start-3 justify-self-end">
+    <%= render 'dashboard/overview_partials/col1-row3' %>
   </div>
 
-  <!-- 6. Div: Dritte Zeile, Zweite Spalte -->
-  <div class="col-start-2 row-start-3 bg-pink-500">
-    Inhalt für 3. Zeile, 2. Spalte
+  <!-- 6. Div: Dritte Zeile, Zweite Spalte  testfarbe: bg-pink-500-->
+  <div class="col-start-2 row-start-3 justify-self-start">
+    <%= render 'dashboard/overview_partials/col2-row3' %>
   </div>
 
-  <!-- 7. Div: Vierte Zeile, Erste Spalte -->
-  <div class="col-start-1 row-start-4 bg-orange-500">
-    Inhalt für 4. Zeile, 1. Spalte
+  <!-- 7. Div: Vierte Zeile, Erste Spalte testfarbe: bg-orange-500 -->
+  <div class="col-span-2 row-start-4 ">
+    <%= render 'dashboard/overview_partials/overview-footer' %>
   </div>
 
   <!-- 8. Div: Vierte Zeile, Zweite Spalte -->
-  <div class="col-start-2 row-start-4 bg-teal-500">
+<!--  <div class="col-start-2 row-start-4 bg-teal-500">
     Inhalt für 4. Zeile, 2. Spalte
-  </div>
+  </div>-->
 </div>

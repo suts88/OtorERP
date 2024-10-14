@@ -1,0 +1,46 @@
+<div class="flex justify-center w-full md:w-[562px] h-auto md:h-[327px] rounded-[20px] bg-white mt-1 ms-32 mb-2">
+  <div class="flex flex-col w-full max-w-[500px] ms-4 mt-2">
+    <p class="font-nunito text-xl font-extrabold text-text-black mt-4">Stock</p>
+    <div class="overflow-y-auto">
+      <table class="table-auto mt-2 me-4 w-full">
+        <thead>
+        <tr class="border-b border-[#DDDDDD] h-8">
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">S/N</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Product name</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Quantity</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Total Amount</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @stock_items.each_with_index do |si, index| %>
+          <tr class="border-b border-[#DDDDDD] h-8">
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= index + 1 %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= si.product_name %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= si.quantity %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= si.total_amount %></td>
+            <td class="text-center text-sm font-normal font-nunito leading-normal
+                <%= case si.status
+                    when 'in_stock'
+                      'text-approved-green'
+                    when 'low_in_stock'
+                      'text-pending-yellow'
+                    else
+                      'text-rejected-red'
+                    end %>">
+              <%= case si.status
+                  when 'in_stock'
+                    'In Stock'
+                  when 'low_in_stock'
+                    'Low in Stock'
+                  else
+                    'Out of Stock'
+                  end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
