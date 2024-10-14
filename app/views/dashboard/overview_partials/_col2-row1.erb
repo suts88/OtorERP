@@ -1,22 +1,27 @@
 <div>
-  <%= render "dashboard/menu" %>
+  <div class="hidden md:block">
+    <%= render "dashboard/menu" %>
+  </div>
 
   <!--  Cards -->
-  <div class="flex justify-around mt-14">
-    <div class="flex w-full sm:w-[200px] md:w-[271px] h-[120px] md:h-[150px] bg-white rounded-[20px]">
+  <div class="flex md:justify-around  justify-between mt-14">
+    <div class="flex w-[200px] md:w-[271px] h-[120px] md:h-[150px] bg-white rounded-[20px]">
       <div class="flex flex-col justify-start items-start mt-4 ms-6">
         <p class="font-nunito text-[28px] font-extrabold text-text-black">25</p>
         <p class="font-nunito text-text-black text-base font-normal leading-normal">Total Projects</p>
-        <div class="mt-6 flex justify-items-center justify-center">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="Small Arrow Up">
-              <path id="shape" d="M12 7V17M12 7L16 11M12 7L8 11" stroke="#10A242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-          </svg>
-          <p class="font-nunito text-field-gray text-xs font-normal leading-tight mt-1">12 more than last quarter</p>
+        <div class=" hidden md:block">
+          <div class="mt-6 flex justify-items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Small Arrow Up">
+                <path id="shape" d="M12 7V17M12 7L16 11M12 7L8 11" stroke="#10A242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <p class="font-nunito text-field-gray text-xs font-normal leading-tight mt-1">12 more than last quarter</p>
+          </div>
         </div>
       </div>
-      <div class="mt-4 ms-6 w-[50px] h-[50px] bg-[#f9efff] rounded-full flex justify-center items-center">
+      <div class="hidden md:block">
+        <div class="mt-4 ms-6 md:w-[50px]  h-[50px] bg-[#f9efff] rounded-full flex justify-center items-center">
         <svg class="" width="30" height="39" viewBox="0 0 30 39" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Group 6">
             <path id="Vector" d="M21.3067 28.5903C21.4037 28.6344 21.5007 28.6498 21.5973 28.6498C21.8731 28.6498 22.1339 28.5007 22.2606 28.2399C23.7218 25.2954 24.0723 22.6859 23.3042 20.4793C22.6555 18.6232 21.3732 17.5712 20.6649 17.1172C20.2998 20.1143 19.3903 23.4243 17.9364 26.9804C17.914 27.0399 17.8842 27.0998 17.8545 27.1519L21.3067 28.5903Z" fill="#A601FF"/>
@@ -31,14 +36,16 @@
         </svg>
 
       </div>
+      </div>
     </div>
 
-    <div class="flex w-full sm:w-[200px] md:w-[271px] h-[120px] md:h-[150px] bg-white rounded-[20px]">
+    <div class="flex w-[200px] md:w-[271px] h-[120px] md:h-[150px] bg-white rounded-[20px]">
       <div class="flex flex-col justify-start items-start mt-4 ms-6">
         <p class="font-nunito text-[28px] font-extrabold text-text-black">10</p>
         <p class="font-nunito text-text-black text-base font-normal leading-normal">Total Departments</p>
       </div>
-      <div class="mt-4 ms-6 w-[50px] h-[50px] bg-[#e7f5ff] rounded-full flex justify-center items-center">
+      <div class="hidden md:block">
+        <div class="mt-4 ms-6 w-[50px] h-[50px] bg-[#e7f5ff] rounded-full flex justify-center items-center">
         <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Group 7">
             <path id="Vector" d="M6.2714 20.778V18.9963C6.2714 18.5297 6.64894 18.148 7.11966 18.148H16.4514V20.7778C16.723 20.7228 17.0071 20.6929 17.2997 20.6929C17.5881 20.6929 17.8722 20.7225 18.1479 20.7778L18.1482 18.148H27.9041C28.3707 18.148 28.7524 18.5297 28.7524 18.9963V20.7778C29.024 20.7228 29.308 20.6929 29.6007 20.6929C29.8891 20.6929 30.1732 20.7225 30.4489 20.7778L30.4492 18.9963C30.4492 17.5924 29.3039 16.4511 27.904 16.4511L18.1481 16.4514V13.9062H16.4516V16.4514H7.11988C5.71595 16.4514 4.57471 17.5923 4.57471 18.9966V20.7781C4.84632 20.7231 5.13036 20.6932 5.42297 20.6932C5.71145 20.6932 5.99579 20.7228 6.27123 20.7781L6.2714 20.778Z" fill="#10A242"/>
@@ -53,6 +60,7 @@
           </g>
         </svg>
 
+      </div>
       </div>
     </div>
 
