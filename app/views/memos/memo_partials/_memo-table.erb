@@ -1,0 +1,57 @@
+<turbo-frame id="memo-list">
+  <div class="flex flex-col w-auto h-full mx-2 mt-2 rounded-[20px] bg-white">
+    <div class="flex justify-between items-center">
+      <p class="font-nunito text-xl font-extrabold text-text-black mt-4 ms-2">All Memos</p>
+      <div class="flex justify-end me-2">
+        <%= form_with url: memos_path, method: :get, data: { controller: "pagingUpdate", action: "change->pagingUpdate#update" }, local: true do |form| %>
+          <label for="per_page" class="text-sm font-nunito">Memos per page: </label>
+          <%= form.select :per_page, options_for_select([5, 10, 25, 50], selected: params[:per_page]), {}, class: "border border-light-gray rounded-md p-1" %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Wrapping the table in a turbo-frame -->
+    <div class="overflow-auto">
+      <table class="table-auto mt-2 me-4 w-full">
+        <thead>
+        <tr class="border-b border-[#DDDDDD] h-8">
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">S/N</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Memo Title</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Sent from</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Sent to</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Date</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Status</th>
+          <th class="text-[#505050] text-xs font-extrabold font-nunito">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @memos.each do |memo| %>
+          <tr class="border-b border-[#DDDDDD] h-8">
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.sn %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.title %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.sent_from.firstname %> <%= memo.sent_from.lastname %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.sent_to.firstname %> <%= memo.sent_to.lastname %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.date %></td>
+            <td class="text-center text-sm font-normal font-nunito leading-normal
+                  <%= if memo.status == 'Approved'
+                                               'text-approved-green'
+                      else
+                        memo.status == 'Pending' ? 'text-pending-yellow' : 'text-rejected-red'
+                      end %>">
+              <%= memo.status %>
+            </td>
+            <td class="text-accent-blue text-center text-sm font-normal font-nunito leading-normal">
+              <%= link_to 'View more', memo_path(memo) %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination links -->
+    <div class="flex justify-center mt-4">
+      <%= paginate @memos, params: { turbo_frame: 'memo-list' } %>
+    </div>
+  </div>
+</turbo-frame>

@@ -16,7 +16,7 @@
         <tbody>
         <% @memos.each_with_index do |memo, index| %>
           <tr class="border-b border-[#DDDDDD] h-8">
-            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= index + 1 %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.sn %></td>
             <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.title %></td>
             <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.sent_from.firstname %> <%= memo.sent_from.lastname %></td>
             <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= memo.sent_to.firstname %> <%= memo.sent_to.lastname %></td>

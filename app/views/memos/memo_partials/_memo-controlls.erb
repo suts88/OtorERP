@@ -1,0 +1,30 @@
+<!-- memo/memo_partials/memo-controlls -->
+<div class="flex mt-4 mx-2 md:w-auto h-[130px] bg-white rounded-[20px] items-center justify-center content-center" data-controller="search">
+  <div class="flex flex-col ms-4">
+    <p class="font-nunito text-text-black text-2xl font-extrabold"><%= @total_memos %></p>
+    <p class="font-nunito text-text-gray text-sm font-normal leading-normal mt-1">Total memos</p>
+  </div>
+
+  <!-- Search field -->
+  <div class="flex flex-col mx-24">
+    <p class="font-nunito text-text-gray text-sm font-normal leading-normal">Quick Search a memo</p>
+    <input type="search" data-search-target="input" class="ps-2 w-[350px] h-[50px] rounded-[10px] border border-light-gray mt-1" placeholder="Search..." data-action="input->search#search" />
+  </div>
+
+  <!-- Status filter field -->
+  <div class="flex flex-col mx-24">
+    <p class="font-nunito text-text-gray text-sm font-normal leading-normal">Filter memos</p>
+    <select class="ps-2 w-[200px] h-[50px] rounded-[10px] border border-light-gray bg-[#f2f7ff] mt-1" data-search-target="select" data-action="change->search#search">
+      <option value="">All</option>
+      <option value="Pending" <%= 'selected' if params[:status] == 'Pending' %>>Pending</option>
+      <option value="Approved" <%= 'selected' if params[:status] == 'Approved' %>>Approved</option>
+      <option value="Rejected" <%= 'selected' if params[:status] == 'Rejected' %>>Rejected</option>
+    </select>
+  </div>
+
+  <div>
+    <div class="flex justify-center items-center w-[350px] h-[50px]">
+      <%= link_to 'Create Memo', memo_new_path, class: "flex items-center justify-center w-[180px] h-[46px] bg-gradient-to-br from-accent-blue to-gradient-violet text-white text-sm font-normal font-nunito rounded-[10px] hover:bg-gradient-to-bl focus:outline-none transition duration-300 ease-in-out" %>
+    </div>
+  </div>
+</div>
