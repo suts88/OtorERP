@@ -13,9 +13,9 @@
         </tr>
         </thead>
         <tbody>
-        <% @procurement_items.each_with_index do |pi, index| %>
+        <% @procurement_items.each do |pi| %>
           <tr class="border-b border-[#DDDDDD] h-8">
-            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= index + 1 %></td>
+            <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= pi.sn %></td>
             <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= pi.itemname %></td>
             <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= pi.requested_by.firstname %> <%= pi.requested_by.lastname %></td>
             <td class="text-text-black text-center text-sm font-normal font-nunito leading-normal"><%= pi.total_amount %></td>

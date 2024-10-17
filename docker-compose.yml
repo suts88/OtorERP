@@ -1,0 +1,48 @@
+version: '3.8'  # oder eine neuere Version, falls du sie benötigst
+
+services:
+  # Rails Web App
+  web:
+    build:
+      context: .  # Der Kontext ist das Root-Verzeichnis der Rails-App, wo das Dockerfile für die App liegt
+      dockerfile: Dockerfile
+    command: ./bin/rails server -b 0.0.0.0 -p 3000
+    volumes:
+      - .:/rails  # Mountet den aktuellen Verzeichnisinhalt (die App) in den Container
+    ports:
+      - "3000:3000"  # Exponiert den Port 3000 auf dem Host
+    environment:
+      RAILS_ENV: development
+      POSTGRES_USER: otor_erp
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: otor_erp_development
+      DATABASE_URL: postgres://otor_erp:postgres@db:5432/otor_erp_development
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}  # Erwartet den Master Key als Umgebungsvariable
+    depends_on:
+      - db
+    networks:
+      - otor_erp_net
+
+  # PostgreSQL Datenbank
+  db:
+    build:
+      context: ./db  # Verzeichnis, in dem das Dockerfile für die Datenbank liegt
+    environment:
+      POSTGRES_USER: otor_erp
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: otor_erp_development
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Daten persistent speichern
+    ports:
+      - "5432:5432"
+    networks:
+      - otor_erp_net
+
+# Docker-Netzwerk für die Services
+networks:
+  otor_erp_net:
+    driver: bridge
+
+# Datenvolumen für die Datenbank
+volumes:
+  pgdata:
