@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sn: 1
+  sent_from: one
+  sent_to: one
+  date: 2024-10-10
+
+two:
+  sn: 1
+  sent_from: two
+  sent_to: two
+  date: 2024-10-10

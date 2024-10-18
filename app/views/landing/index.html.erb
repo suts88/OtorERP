@@ -1,0 +1,11 @@
+<div class="grid gap-0 grid-cols-2 grid-rows-1 gap-0 h-full min-h-screen">
+  <div class="mt-10 ">
+    <%= render 'landing/header' %>
+    <div class="md:ms-24 ms-16 md:mt-16 mt-10">
+      <%= render 'devise/sessions/form', resource: @resource, resource_name: @resource_name, devise_mapping: @devise_mapping %>
+    </div>
+  </div>
+  <div class="w-full h-full">
+    <%= image_tag('erpLanding.svg', class: "w-full h-full object-cover hidden custom-md:block") %>
+  </div>
+</div>

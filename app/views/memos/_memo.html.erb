@@ -1,0 +1,12 @@
+<div id="<%= dom_id memo %>" class="w-full h-auto bg-white rounded-[20px] px-6 py-6">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= memo.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Message:</strong>
+    <%= memo.message.body.html_safe %>
+  </p>
+
+</div>

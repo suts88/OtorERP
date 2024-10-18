@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sn: 1
+  itemname: MyString
+  price: 1.5
+  quantity: 1
+  total_amount: 1.5
+  requested_by: one
+  sent_to: one
+  date: 2024-10-14
+  status: 1
+
+two:
+  sn: 1
+  itemname: MyString
+  price: 1.5
+  quantity: 1
+  total_amount: 1.5
+  requested_by: two
+  sent_to: two
+  date: 2024-10-14
+  status: 1

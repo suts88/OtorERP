@@ -1,0 +1,38 @@
+<div class="grid gap-0 grid-cols-2 grid-rows-1 gap-0 h-full min-h-screen">
+  <div class="mt-10 ">
+    <%= render 'landing/header' %>
+   <div class="md:ms-24 ms-16 md:mt-16 mt-10">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+       <div class="w-[350px] mb-10">
+         <p class="font-nunito font-normal text-sm text-text-gray">Password recovery.</p>
+         <p class="font-nunito font-extrabold text-[28px] text-text-black">Forgot your password?</p>
+         <p class="font-nunito font-normal text-sm text-text-gray leading-normal">
+           Kindly enter the email address linked to this account
+           and we will send you a code to enable you change your password..
+         </p>
+       </div>
+
+       <div class="field mb-10">
+         <div class="mb-4">
+           <%= f.label :email, "Email address", class: "mb-36 font-nunito font-normal text-sm text-text-black" %><br/>
+         </div>
+         <div>
+           <%= f.email_field :email, class: "w-[350px] h-[50px] rounded-[10px] bg-[#f8fafc] border border-light-gray ", autofocus: true, autocomplete: "email" %>
+         </div>
+       </div>
+
+       <div class="actions mt-10 w-[350px] h-[50px]">
+         <%= f.submit "Send", class: "w-full h-full p-2.5 bg-gradient-to-br from-accent-blue to-gradient-violet text-white text-sm font-normal font-nunito leading-normal rounded-[10px] hover:bg-gradient-to-bl focus:outline-none transition duration-300 ease-in-out" %>
+       </div>
+      <% end %>
+   </div>
+  </div>
+    <div class="w-full h-full">
+      <%= image_tag('forgot_pw_pic.svg', class: "w-full h-full object-cover hidden custom-md:block") %>
+    </div>
+    <%= render "devise/shared/links" %>
+
+</div>
+
+

@@ -1,0 +1,65 @@
+<div class="flex flex-col w-full h-full">
+<%= form_with(model: memo, class: " font-nunito contents") do |form| %>
+  <% if memo.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
+
+      <ul>
+        <% memo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="flex flex-row justify-around">
+    <div class=" flex flex-col my-5">
+      <%= form.label :title, class:"" %>
+      <%= form.text_field :title, class: " w-[350px] h-[50px] rounded-[10px] border border-[#d0d0d0] px-3 py-2 mt-2 " %>
+    </div>
+
+    <div class="flex flex-col my-5">
+      <%= form.label :sent_from, "Absender" %>
+
+      <!-- Zeigt den Namen des aktuellen Benutzers nur als Text an -->
+      <p class="w-[350px] h-[50px] rounded-[10px] border border-[#d0d0d0] px-3 py-3 mt-2 ">
+        <%= "#{@current_user_firstname} #{@current_user_lastname}" %>
+      </p>
+
+      <!-- Verstecktes Feld zum Speichern des aktuellen Benutzers im Formular -->
+      <%= form.hidden_field :sent_from_id, value: @user %>
+    </div>
+
+
+
+    <div class="flex flex-col my-5">
+      <%= form.label :sent_to_id, "Send to", class: "" %>
+      <%= form.select :sent_to_id, @staff.map { |s| [ "#{s.firstname} #{s.lastname}", s.id ] }, {}, class: "w-[350px] h-[50px] rounded-[10px] border border-[#d0d0d0] px-3 py-2 mt-2 " %>
+    </div>
+  </div>
+<div class="flex flex-row justify-around">
+  <div class="flex flex-col my-5">
+    <%= form.label :date, class:"" %>
+    <%= form.date_field :date, value: Date.today,  class: "w-[350px] h-[50px] rounded-[10px] border border-[#d0d0d0] px-3 py-2 mt-2 " %>
+  </div>
+
+  <div class=" flex flex-col my-5">
+    <%= form.label :status, "Status", class: "" %>
+    <%= form.select :status, Memo.statuses.keys.map { |status| [status.humanize, status] }, {}, class: "w-[350px] h-[50px] rounded-[10px] border border-[#d0d0d0] px-3 py-2 mt-2 " %>
+  </div>
+</div>
+  <div class="flex flex-row justify-around">
+  <div class="flex flex-col my-5 ">
+    <%= form.label :message %>
+    <%= form.rich_text_area :message, class: "w-[720px] h-[125px] rounded-[10px] border border-[#d0d0d0]" %>
+  </div>
+  </div>
+
+  <div class="inline flex justify-around items-center w-full h-[50px] mb-2">
+    <%= form.submit class: "flex items-center justify-center w-[180px] h-[46px] bg-gradient-to-br from-accent-blue to-gradient-violet text-white text-sm font-normal font-nunito rounded-[10px] hover:bg-gradient-to-bl focus:outline-none transition duration-300 ease-in-out" %>
+    <%= link_to "Show this memo", @memo, class: "flex items-center justify-center w-[180px] h-[46px] bg-gradient-to-br from-accent-blue to-gradient-violet text-white text-sm font-normal font-nunito rounded-[10px] hover:bg-gradient-to-bl focus:outline-none transition duration-300 ease-in-out" %>
+    <%= link_to "Back to memos", memos_path, class: "flex items-center justify-center w-[180px] h-[46px] bg-gradient-to-br from-accent-blue to-gradient-violet text-white text-sm font-normal font-nunito rounded-[10px] hover:bg-gradient-to-bl focus:outline-none transition duration-300 ease-in-out" %>
+  </div>
+
+<% end %>
+
+</div>

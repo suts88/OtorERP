@@ -1,0 +1,22 @@
+<turbo-frame id="main_content">
+  <div class="h-screen w-full grid grid-rows-[10vh_17.5vh_1fr] m-0 items-center content-center justify-start">
+    <!-- First Row: 10% of viewport height  testfarbe: bg-blue-500 -->
+    <div class="w-full h-full">
+      <%= render 'memos/memo_partials/memo-header' %>
+    </div>
+
+    <!-- Second Row: 12.5% of viewport height testfarbe: bg-green-500 -->
+    <div class="w-full h-full mb-6">
+      <%= render 'memos/memo_partials/memo-controlls' %>
+    </div>
+
+    <!-- Third Row: Remaining space testfarbe bg-gray-500-->
+    <div class="w-full h-full">
+      <%= render 'memos/memo_partials/memo-table' %>
+    </div>
+  </div>
+</turbo-frame>
+
+
+
+
