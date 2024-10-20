@@ -67,3 +67,5 @@ This will populate the database with initial data so that you have something to 
 ---
 
 I hope you enjoy exploring this project. While it’s still a work in progress, I look forward to refining it and improving based on your feedback!
+
+Design Idea: https://www.behance.net/uiuxotor
